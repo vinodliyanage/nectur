@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Link Speak",
+  "name": "Nectur",
   "version": "0.0.0.1",
   "description": "A comment section for every link you visit",
   "action": {
     "default_popup": "index.html",
-    "default_title": "Link Speak | A comment section for every link you visit",
+    "default_title": "Nectur | A comment section for every link you visit",
     "default_icon": {
       "16": "logo.png",
       "32": "logo.png",
