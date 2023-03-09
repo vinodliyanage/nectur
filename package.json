@@ -1,0 +1,37 @@
+{
+  "name": "link-speak",
+  "private": true,
+  "version": "0.0.0.1",
+  "type": "module",
+  "author": "Vinod Liyanage",
+  "description": "A comment section for every link you visit",
+  "keywords": [
+    "comments"
+  ],
+  "browser": "main.tsx",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matheusxv12/extension.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^2.0.0-beta.14",
+    "@types/chrome": "^0.0.220",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  }
+}
