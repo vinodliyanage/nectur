@@ -20,7 +20,7 @@ export function useComments(): [
       const { comments: _comments = {} } = await chrome.storage.local.get(
         "comments"
       );
-      chrome.storage.local.set({ comments: { _comments, ...comments } });
+      chrome.storage.local.set({ comments: { ..._comments, ...comments } });
     };
     updateComments();
   }, [comments]);
