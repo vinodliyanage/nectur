@@ -1,34 +1,36 @@
 import React from "react";
-import logo from "/logo.png";
+import { Link } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import ArrowLeftIcon from "./icons/ArrowLeftIcon";
 
-interface NavbarProps {}
+interface NavbarProps {
+  backTo?: string;
+}
 
-const Navbar: React.FC<NavbarProps> = () => {
+const Navbar: React.FC<NavbarProps> = (props) => {
   return (
-    <div className="mb-4">
-      <div className="flex items-center justify-between">
-        <div className="flex flex-row gap-2 items-center">
-          <img className="w-6 h-6" src={chrome.runtime.getURL(logo)} alt="" />
-          <h1 className="font-medium text-xl dark:text-white">Comments</h1>
-        </div>
-
-        <div className="flex flex-row items-center gap-2">
-          <p className="font-medium text-sm dark:text-white">Admin</p>
-          <button>
-            <div className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-              <span className="font-medium text-gray-600 dark:text-gray-300">
-                AD
-              </span>
-            </div>
-            {/* <img
-              className="w-10 h-10 rounded-full"
-              src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
-              alt=""
-            /> */}
-          </button>
+    <>
+      <div className="mb-6 text-gray-900 dark:text-white">
+        <div className="grid grid-cols-3">
+          <div className="flex justify-start col-span-1">
+            {props.backTo?.length && (
+              <Link
+                to={props.backTo}
+                className="rounded-full p-1 hover:bg-light-600 hover:dark:bg-gray-600"
+              >
+                <ArrowLeftIcon />
+              </Link>
+            )}
+          </div>
+          <div className="flex justify-center items-center col-span-1">
+            <Link to="/" className="flex items-center text-2xl font-semibold space-x-1">
+              <img className="w-8 h-8" src={chrome.runtime.getURL(logo)} alt="logo" />
+              <p>Nectur</p>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
