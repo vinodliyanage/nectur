@@ -8,35 +8,10 @@
   padding: 0;
 }
 
-body {
-  width: 400px;
+#root {
+  width: 600px;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 100vw;
-  background:#e3e3e3; 
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #cecece;
-}
-
-
-@media (prefers-color-scheme: dark) {
-    ::-webkit-scrollbar {
-        width: 8px;
-      }
-      
-      ::-webkit-scrollbar-thumb {
-        border-radius: 100vw;
-        background: #6857ff;
-      }
-      
-      ::-webkit-scrollbar-thumb:hover {
-        background: #7165e3;
-      }
+  display: none;
 }
