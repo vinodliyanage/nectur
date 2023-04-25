@@ -19,8 +19,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "formik": "^2.2.9",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-image-file-resizer": "^0.4.8",
+    "react-router-dom": "^6.10.0",
+    "yup": "^1.0.2"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^2.0.0-beta.14",
