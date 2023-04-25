@@ -61,7 +61,7 @@ const scheme = Yup.object({
     .test("passwords-match", PASSWORD_NOT_MATCH, function (value) {
       return this.parent.password === value;
     })
-    .required(CONFIRM_PASSWORD_REQUIRED), 
+    .required(CONFIRM_PASSWORD_REQUIRED),
 
   agreeTerms: Yup.boolean().oneOf([true], AGREE_TERMS).required(AGREE_TERMS_REQUIRED),
 });
