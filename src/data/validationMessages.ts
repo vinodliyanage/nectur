@@ -10,6 +10,8 @@ export const validationMessages = {
     NEW_PASSWORD_MAX_LENGTH: 'New password must be at most 255 characters',
     NEW_PASSWORD_REQUIRED: 'New password is required',
 
+    PASSWORD_SAME_AS_OLD: "New password is same as old password",
+
     PASSWORD_NOT_VALID: 'Password is not valid',
     PASSWORD_NOT_MATCH: 'Password does not match',
     PASSWORD_MIN_LENGTH: 'Password must be at least 8 characters',
