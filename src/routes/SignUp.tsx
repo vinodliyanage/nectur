@@ -82,8 +82,8 @@ const SignUp: React.FC = () => {
       confirmPassword: "",
       agreeTerms: false,
     },
-    onSubmit: (values) => {
-      const signedUp = handleSignUp(values);
+    onSubmit: async (values) => {
+      const signedUp = await handleSignUp(values);
       if (signedUp) navigate("/emailConfirmation");
     },
   });

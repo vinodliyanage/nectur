@@ -42,8 +42,8 @@ const SignIn: React.FC = () => {
       password: "",
       remember: false,
     },
-    onSubmit: (values) => {
-      const signedIn = handleSignIn(values);
+    onSubmit: async (values) => {
+      const signedIn = await handleSignIn(values);
       if (signedIn) navigate("/comments");
     },
   });
