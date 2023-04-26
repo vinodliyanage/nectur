@@ -9,7 +9,7 @@ interface IconButtonProps {
 }
 
 const className =
-  "text-gray-900 dark:text-white hover:bg-light-600 dark:hover:bg-gray-600 rounded-full p-2";
+  "inline-block text-gray-900 dark:text-white hover:bg-light-600 dark:hover:bg-gray-600 rounded-full p-2";
 
 const IconButton: React.FC<IconButtonProps> = (props) => {
   const { children, to = "", component = "button", onClick = () => {} } = props;
