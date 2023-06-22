@@ -11,7 +11,7 @@ export function useURLHash() {
       if (!_url) return;
 
       const url = new URL(_url);
-      const hash = createHash(url.origin + url.pathname);
+      const hash = createHash(url.href);
       setHash(String(hash));
     };
     chrome.tabs.query({ active: true, currentWindow: true }, handleTab);
