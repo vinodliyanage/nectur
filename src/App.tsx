@@ -1,45 +1,45 @@
-import Comment from "./components/Comment";
-import Navbar from "./components/Navbar";
-import PostComment from "./components/PostComment";
-import { useComments } from "./hooks/useComments";
-import { useURLHash } from "./hooks/useURLHash";
+import { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { useAuth } from "./contexts/AuthContext";
+import CommentContext from "./contexts/CommentContext";
 import "./index.css";
-import { UserComment } from "./types/types";
+import Comments from "./routes/Comments";
+import EmailConfirmation from "./routes/EmailConfirmation";
+import ForgotPassword from "./routes/ForgotPassword";
+import Profile from "./routes/Profile";
+import ResetPassword from "./routes/ResetPassword";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
+import Welcome from "./routes/Welcome";
 
 function App() {
-  const [comments, setComments] = useComments();
-  const hash = useURLHash();
-  const siteComments = comments?.[hash] || [];
+  const { loggedIn } = useAuth();
+  const navigate = useNavigate();
 
-  const handlePostComment = (content: string) => {
-    if (!hash.length) return;
-
-    const comment: UserComment = {
-      belongTo: "admin",
-      content,
-      createdAt: Date.now(),
-      id: Date.now(),
-      likes: 0,
-      dislikes: 0,
-    };
-
-    const _comments = { ...comments };
-
-    if (hash in _comments) _comments[hash].unshift(comment);
-    else _comments[hash] = [comment];
-
-    setComments(_comments);
-  };
+  useEffect(() => {
+    if (loggedIn) navigate("/comments");
+    else navigate("/");
+  }, [loggedIn]);
 
   return (
-    <div className="App p-2.5 dark:bg-gray-900">
-      <Navbar />
-      <div className="max-h-[300px] mb-2 overflow-y-scroll">
-        {siteComments.map((comment, index) => (
-          <Comment key={index} comment={comment} />
-        ))}
-      </div>
-      <PostComment onPost={handlePostComment} />
+    <div className="bg-light-500 dark:bg-dark-500">
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/forgotPassword" element={<ForgotPassword />} />
+        <Route path="/resetPassword" element={<ResetPassword />} />
+        <Route
+          path="/comments"
+          element={
+            <CommentContext>
+              <Comments />
+            </CommentContext>
+          }
+        />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/emailConfirmation" element={<EmailConfirmation />} />
+      </Routes>
     </div>
   );
 }
