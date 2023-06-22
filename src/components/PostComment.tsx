@@ -12,6 +12,7 @@ const PostComment: React.FC<PostCommentProps> = (props) => {
     const message = postRef.current?.value;
     if (!message) return;
     props.onPost(message);
+    postRef.current.value = "";
   };
 
   return (
