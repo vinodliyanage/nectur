@@ -1,4 +1,4 @@
-import Resizer from "react-image-file-resizer";
+import { createResizedImage } from "./imageResizer";
 
 export function createHash(str: string) {
   if (typeof str !== "string") throw new Error("not a valid string!");
@@ -55,7 +55,7 @@ export function imageUploader(): Promise<string | File | Blob | ProgressEvent<Fi
       const file = handler.files?.[0];
       if (!file) return resolve("");
 
-      Resizer.imageFileResizer(file, 300, 300, "JPEG", 80, 0, (value) => resolve(value), "base64");
+      createResizedImage(file, 300, 300, "JPEG", 80, 0, (value) => resolve(value), "base64");
     };
     handler.addEventListener("change", handleFileChange);
   });
