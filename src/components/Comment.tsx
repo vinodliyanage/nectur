@@ -40,7 +40,7 @@ const Comment: React.FC<CommentProps> = (props) => {
     upvote: false,
     downvote: false,
     replyBtnShow: false,
-    minimizeComment: false,
+    minimizeComment: true,
     repliesShow: true,
   });
 
@@ -128,7 +128,6 @@ const Comment: React.FC<CommentProps> = (props) => {
             className="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400"
             onClick={handleReplyBtnShow}
           >
-            <ReplyIcon />
             Reply
           </button>
         </footer>
